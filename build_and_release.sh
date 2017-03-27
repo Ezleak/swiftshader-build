@@ -19,10 +19,17 @@ cp linux-out/temp/*.so build-release/
 cd build-release
 zip -r ../swiftshader-linux.zip *
 cd ..
+github-release release \
+  --user paulthomson \
+  --repo swiftshader-build \
+  --tag v-${CI_BUILD_REF} \
+  --name ${CI_BUILD_REF} \
+  --description "$(echo -e "Automated build.\n$(git log --graph -n 3 --abbrev-commit --pretty='format:%h - %s <%an>')")" | true
+
 github-release upload \
-  paulthomson/swiftshader-build \
-  v-${CI_BUILD_REF} \
-  ${CI_BUILD_REF} \
-  "$(echo -e "Automated build.\n$(git log --graph -n 3 --abbrev-commit --pretty='format:%h - %s <%an>')")" \
-  'swiftshader-linux.zip'
+  --user paulthomson \
+  --repo swiftshader-build \
+  --tag v-${CI_BUILD_REF} \
+  --name 'swiftshader-linux.zip' \
+  --file 'swiftshader-linux.zip'
 
