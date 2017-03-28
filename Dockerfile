@@ -17,7 +17,7 @@ WORKDIR /data
 
 RUN \
   mkdir -p ${GOPATH} && \
-  go get github.com/c4milo/github-release
+  go get github.com/aktau/github-release
 
 CMD ["./build_and_release.sh"]
 
