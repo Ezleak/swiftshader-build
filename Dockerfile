@@ -11,13 +11,13 @@ ENV \
   GOPATH=/data/gopath \
   PATH=/data/gopath/bin:${PATH}
 
-COPY . /data/
-
-WORKDIR /data
-
 RUN \
   mkdir -p ${GOPATH} && \
   go get github.com/c4milo/github-release
 
-CMD ["./build_and_release.sh"]
+COPY . /data/
+
+WORKDIR /data
+
+CMD ["bash"]
 

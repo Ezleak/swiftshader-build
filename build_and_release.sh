@@ -3,20 +3,22 @@ set -x
 set -e
 set -u
 
-rm -rf build-release || true
-mkdir -p build-release
+echo "Using personal token: ${GITHUB_TOKEN:0:2}..."
 
-git clone --recursive https://github.com/google/swiftshader.git
+git clone https://github.com/google/swiftshader.git
 cd swiftshader
-git checkout 69bc6e8ac26d38aec85946dbf1bc60c32fb6e5d3
+git checkout $(cat ../COMMIT_ID)
+git submodule init
+git submodule update
 cd ..
 
 cd linux-out
 ./build
-cd ..
-cp linux-out/temp/*.so build-release/
+mkdir -p release/lib
+cp temp/*.so release/lib
+cp -R ../swiftshader/include release/
 
-cd build-release
+cd release
 zip -r ../swiftshader-linux.zip *
 cd ..
 

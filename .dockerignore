@@ -1,4 +1,12 @@
 *-out/install/
 *-out/temp/
+
+*-out/install/
+*-out/temp/
+*-out/release/
+*-out/swiftshader-*.zip
+
+swiftshader/
+
 .idea/
 

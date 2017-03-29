@@ -1,10 +1,10 @@
 
 /*-out/install/
 /*-out/temp/
+/*-out/release/
+/*-out/swiftshader-*.zip
 
 /swiftshader/
 
-/build-release/
-/swiftshader-linux.zip
-
+.idea/
 
