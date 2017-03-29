@@ -3,7 +3,7 @@ set -x
 set -e
 set -u
 
-echo "Using personal token: ${GITHUB_TOKEN:0:2}..."
+echo "Using personal token: ${GITHUB_TOKEN:0:3}..."
 
 git clone https://github.com/google/swiftshader.git
 cd swiftshader
@@ -17,6 +17,7 @@ cd linux-out
 mkdir -p release/lib
 cp temp/*.so release/lib
 cp -R ../swiftshader/include release/
+rm -rf release/include/Direct3D
 
 cd release
 zip -r ../swiftshader-linux.zip *
