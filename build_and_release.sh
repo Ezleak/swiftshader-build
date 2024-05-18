@@ -21,11 +21,4 @@ cd release
 zip -r ../swiftshader-android.zip *
 cd ..
 
-github-release \
-  Ezleak/swiftshader-build \
-  v-${CI_BUILD_REF} \
-  ${CI_BUILD_REF} \
-  "$(echo -e "Automated build.\n$(git log --graph -n 3 --abbrev-commit --pretty='format:%h - %s <%an>')")" \
-  'swiftshader-android.zip'
-
 
