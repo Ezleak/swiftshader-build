@@ -3,8 +3,6 @@ set -x
 set -e
 set -u
 
-echo "Using personal token: ${GITHUB_TOKEN:0:3}..."
-
 git clone https://github.com/google/swiftshader.git
 cd swiftshader
 git checkout $(cat ../COMMIT_ID)
