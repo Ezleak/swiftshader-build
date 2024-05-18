@@ -15,3 +15,9 @@ jobs:
           java-version: 8
       - name: Build
         run: bash docker_build_create_start.sh
+      - name: Upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: libs
+          path: ../lib
