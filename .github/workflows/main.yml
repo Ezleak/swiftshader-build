@@ -20,4 +20,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: libs
-          path: ../lib
+          path: ../swiftshader-android.tar.gz
