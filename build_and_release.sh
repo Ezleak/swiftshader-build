@@ -12,7 +12,7 @@ git submodule init
 git submodule update
 cd ..
 
-cd linux-out
+cd Android-out
 ./build
 mkdir -p release/lib
 cp temp/*.so release/lib
@@ -20,14 +20,14 @@ cp -R ../swiftshader/include release/
 rm -rf release/include/Direct3D
 
 cd release
-zip -r ../swiftshader-linux.zip *
+zip -r ../swiftshader-android.zip *
 cd ..
 
 github-release \
-  paulthomson/swiftshader-build \
+  Ezleak/swiftshader-build \
   v-${CI_BUILD_REF} \
   ${CI_BUILD_REF} \
   "$(echo -e "Automated build.\n$(git log --graph -n 3 --abbrev-commit --pretty='format:%h - %s <%an>')")" \
-  'swiftshader-linux.zip'
+  'swiftshader-android.zip'
 
 
